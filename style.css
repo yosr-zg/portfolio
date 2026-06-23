@@ -1,0 +1,572 @@
+:root {
+    /* Pastel & Poetic Palette */
+    --bg-color: #fcf9fb;
+    --pastel-purple: #e8dff5;
+    --pastel-pink: #fce1e4;
+    --pastel-blue: #ddf3f5;
+    --text-main: #4a4053;
+    --text-light: #7b6f83;
+    --accent-purple: #9b72aa;
+    
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-ar: 'Cairo', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    /* Image en fond avec un léger voile blanc/pastel pour garder le texte sombre très lisible */
+    background-image: linear-gradient(rgba(252, 249, 251, 0.7), rgba(252, 249, 251, 0.7)), url('background.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.8;
+    overflow-x: hidden;
+    position: relative;
+    transition: direction 0.3s ease;
+}
+
+/* Arabic RTL support */
+[dir="rtl"] body {
+    font-family: var(--font-ar);
+}
+[dir="rtl"] .title-poetic, 
+[dir="rtl"] .chapter-title, 
+[dir="rtl"] .poem-extract, 
+[dir="rtl"] .verse::before, 
+[dir="rtl"] .verse::after, 
+[dir="rtl"] .name-text {
+    font-family: var(--font-ar);
+}
+
+/* Custom Cursor */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-purple);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--accent-purple);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9998;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Language Switcher */
+.lang-switcher {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.5rem;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    font-weight: 600;
+    cursor: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.lang-btn.active, .lang-btn:hover {
+    background: var(--accent-purple);
+    color: white;
+}
+
+[dir="rtl"] .lang-switcher {
+    right: auto;
+    left: 2rem;
+}
+
+/* Background Blobs (Removed since we have an image, but kept structure to not break things) */
+.pastel-blob {
+    display: none;
+}
+
+/* Poetic Navigation */
+.poetic-nav {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    white-space: nowrap;
+}
+
+.poetic-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.poetic-nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.poetic-nav a:hover {
+    color: var(--accent-purple);
+}
+
+/* Story Container */
+.story-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+}
+
+.chapter {
+    margin-bottom: 8rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.chapter.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Profile Photo */
+.profile-photo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.photo-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-purple);
+    border: 3px dashed var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(155, 114, 170, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(155, 114, 170, 0.2);
+}
+
+.photo-placeholder i {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.photo-placeholder span {
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* Titles */
+.title-poetic {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.small-text {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-light);
+}
+
+.name-text {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    color: var(--accent-purple);
+    font-style: italic;
+}
+
+.role-text {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text-main);
+}
+
+.chapter-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--accent-purple);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.chapter-intro {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+/* Buttons */
+.btn-poetic {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: #fff;
+    color: var(--accent-purple);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.btn-poetic:hover {
+    background: var(--accent-purple);
+    color: #fff;
+}
+.action-buttons { text-align: center; margin-bottom: 4rem; }
+
+/* Verse Text */
+.verse {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem;
+}
+
+.verse::before, .verse::after {
+    content: '"';
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    color: var(--pastel-purple);
+    position: absolute;
+}
+
+.verse::before {
+    top: -10px;
+    left: 0;
+}
+
+.verse::after {
+    bottom: -30px;
+    right: 0;
+}
+[dir="rtl"] .verse::before { left: auto; right: 0; }
+[dir="rtl"] .verse::after { right: auto; left: 0; }
+
+/* Gallery (Projects) */
+.gallery {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.art-frame {
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.4s, box-shadow 0.4s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    backdrop-filter: blur(10px);
+}
+
+.art-frame:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(155, 114, 170, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.art-frame h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--accent-purple);
+    margin-bottom: 0.5rem;
+}
+
+.discover-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-purple);
+    font-size: 0.9rem;
+}
+
+/* Poetry Section */
+.poetry-box {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(252, 225, 228, 0.8) 0%, rgba(232, 223, 245, 0.8) 100%);
+    padding: 3rem;
+    border-radius: 20px;
+    color: var(--text-main);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    backdrop-filter: blur(5px);
+}
+
+.icon-feather {
+    font-size: 2rem;
+    color: var(--accent-purple);
+    margin-bottom: 1rem;
+}
+
+.poem-extract {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: #3d3144;
+}
+
+/* Essence (Skills) Grid */
+.essence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.essence-card {
+    background: rgba(255,255,255,0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid var(--pastel-blue);
+    transition: transform 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.essence-card:hover {
+    transform: scale(1.05);
+}
+
+.essence-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--accent-purple);
+    margin-bottom: 1rem;
+}
+
+.essence-card i {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-purple);
+    opacity: 0.7;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--pastel-purple);
+    color: var(--accent-purple);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* Footer */
+.poetic-footer { text-align: center; padding: 2rem; font-family: var(--font-serif); color: var(--text-light); font-style: italic; }
+
+/* Clickable Essence Card */
+a.essence-card.clickable-card { display: block; text-decoration: none; color: inherit; }
+[dir="rtl"] .discover-link .fa-arrow-right::before { content: "\f060"; } /* arrow left in RTL */
+
+/* Contact Grid */
+.contact-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; max-width: 600px; margin: 0 auto; }
+.contact-item {
+    background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border);
+    border-radius: 50%; width: 100px; height: 100px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-decoration: none; color: var(--text-light);
+    transition: all 0.3s;
+}
+.contact-item i { font-size: 2rem; color: var(--accent-purple); margin-bottom: 0.5rem; }
+.contact-item span { font-size: 0.8rem; font-weight: 600; }
+.contact-item:hover { transform: translateY(-10px); background: rgba(255,255,255,0.1); border-color: var(--accent-purple); color: #fff; }
+
+/* Project pages specific */
+.project-demo { background: rgba(232, 223, 245, 0.8); backdrop-filter: blur(10px); padding: 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center; border: 2px dashed var(--accent-purple); }
+.back-link { display: inline-block; margin-bottom: 2rem; color: var(--text-light); text-decoration: none; font-weight: 600; }
+.back-link:hover { color: var(--accent-purple); }
+
+/* Hamburger Menu (hidden by default, shown on mobile) */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 1002; }
+.hamburger span { display: block; width: 25px; height: 2px; background: var(--text-main); margin: 5px 0; transition: all 0.3s; border-radius: 2px; }
+
+/* ========================================
+   RESPONSIVE — Tablet (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+    /* Hide custom cursor on touch devices */
+    .cursor-dot, .cursor-outline { display: none; }
+    * { cursor: auto; }
+
+    /* Nav becomes hamburger */
+    .hamburger { display: block; position: fixed; top: 1.2rem; left: 1rem; z-index: 1002; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .poetic-nav {
+        position: fixed;
+        top: 0; left: -100%;
+        width: 70%; max-width: 280px; height: 100vh;
+        border-radius: 0 20px 20px 0;
+        padding: 5rem 2rem 2rem;
+        flex-direction: column;
+        transition: left 0.4s ease;
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(20px);
+        transform: none;
+    }
+    .poetic-nav.open { left: 0; }
+    .poetic-nav ul { flex-direction: column; gap: 1.5rem; }
+    .poetic-nav a { font-size: 1rem; }
+
+    [dir="rtl"] .hamburger { left: auto; right: 1rem; }
+    [dir="rtl"] .poetic-nav { left: auto; right: -100%; border-radius: 20px 0 0 20px; }
+    [dir="rtl"] .poetic-nav.open { right: 0; }
+
+    /* Lang switcher */
+    .lang-switcher { top: 1rem; right: 1rem; padding: 0.3rem; }
+    .lang-btn { padding: 0.2rem 0.5rem; font-size: 0.8rem; }
+    [dir="rtl"] .lang-switcher { right: auto; left: 1rem; }
+
+    /* Container */
+    .story-container { padding: 5rem 1.2rem 3rem; }
+    .chapter { margin-bottom: 5rem; }
+
+    /* Typography */
+    .name-text { font-size: 2.8rem; }
+    .role-text { font-size: 1.3rem; }
+    .chapter-title { font-size: 2rem; }
+    .verse { font-size: 1rem; padding: 1.5rem 1rem; }
+    .verse::before, .verse::after { font-size: 3rem; }
+    .poem-extract { font-size: 1.2rem; }
+
+    /* Profile photo */
+    .profile-img, .photo-placeholder { width: 160px; height: 160px; }
+
+    /* Gallery */
+    .gallery { flex-direction: column; align-items: center; }
+    .art-frame { max-width: 100%; }
+
+    /* Poetry box */
+    .poetry-box { padding: 2rem 1.5rem; }
+
+    /* Essence grid */
+    .essence-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .essence-card { padding: 1.5rem 1rem; }
+    .essence-card h3 { font-size: 1.2rem; }
+
+    /* Contact */
+    .contact-grid { gap: 1.2rem; }
+    .contact-item { width: 85px; height: 85px; }
+    .contact-item i { font-size: 1.5rem; }
+
+    /* Buttons */
+    .btn-poetic { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+
+    /* Project pages */
+    .project-demo { padding: 1.5rem; }
+}
+
+/* ========================================
+   RESPONSIVE — Mobile (max-width: 480px)
+   ======================================== */
+@media (max-width: 480px) {
+    .story-container { padding: 4.5rem 1rem 2rem; }
+    .chapter { margin-bottom: 4rem; }
+
+    .name-text { font-size: 2.2rem; }
+    .role-text { font-size: 1.1rem; }
+    .small-text { font-size: 0.8rem; letter-spacing: 2px; }
+    .chapter-title { font-size: 1.6rem; }
+    .verse { font-size: 0.95rem; padding: 1.2rem 0.8rem; }
+    .verse::before, .verse::after { font-size: 2.5rem; }
+
+    .profile-img, .photo-placeholder { width: 130px; height: 130px; }
+
+    .essence-grid { grid-template-columns: 1fr; }
+    .essence-card h3 { font-size: 1.1rem; }
+
+    .contact-grid { gap: 1rem; }
+    .contact-item { width: 75px; height: 75px; }
+    .contact-item i { font-size: 1.3rem; margin-bottom: 0.3rem; }
+    .contact-item span { font-size: 0.7rem; }
+
+    .poetry-box { padding: 1.5rem 1rem; }
+    .poem-extract { font-size: 1.1rem; }
+
+    .btn-poetic { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+
+    .art-frame { padding: 1.5rem; }
+    .art-frame h3 { font-size: 1.6rem; }
+
+    .project-demo { padding: 1rem; border-radius: 15px; }
+}
+

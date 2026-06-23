@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Univers Créatif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+
+    <!-- Decorative background elements -->
+    <div class="pastel-blob blob-top-left"></div>
+    <div class="pastel-blob blob-bottom-right"></div>
+    <div class="pastel-blob blob-center"></div>
+
+    <!-- Hamburger Menu Button (mobile) -->
+    <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav class="poetic-nav">
+        <ul>
+            <li><a href="#prologue" data-i18n="nav1">Prologue</a></li>
+            <li><a href="#oeuvres" data-i18n="nav2">Mes Œuvres</a></li>
+            <li><a href="#poesie" data-i18n="nav3">Poésie & Mots</a></li>
+            <li><a href="#essence" data-i18n="nav4">Mon Essence</a></li>
+            <li><a href="#contact" data-i18n="nav5">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="story-container">
+        <!-- Photo and Intro Section -->
+        <section id="prologue" class="chapter">
+            <div class="profile-photo-container">
+                <img src="ma-photo.jpeg" class="profile-img" alt="Mon portrait">
+            </div>
+            
+            <h1 class="title-poetic">
+                <span class="small-text" data-i18n="iam">Je suis</span>
+                <span class="name-text">Yosr ZAOUGA</span>
+                <span class="role-text" data-i18n="role">Tisserande de codes et d'émotions.</span>
+            </h1>
+            
+            <div class="verse">
+                <p data-i18n="verse1">Je ne code pas de simples pages, je donne une âme au digital.</p>
+                <p data-i18n="verse2">Passionnée par la fusion entre la créativité artistique et l'informatique, je rêve d'une technologie plus humaine, concrète et vibrante.</p>
+                <p data-i18n="verse3">Disciplinée et créative, je peins avec des algorithmes et dessine avec des balises.</p>
+            </div>
+
+            <div class="action-buttons">
+                <!-- Lien vers ton CV en PDF -->
+                <a href="mon_cv.pdf" target="_blank" class="btn-poetic" data-i18n="btnCv">
+                    <i class="fa-solid fa-download"></i> Télécharger mon CV
+                </a>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="oeuvres" class="chapter">
+            <h2 class="chapter-title" data-i18n="oeuvresTitle">Mes Œuvres</h2>
+            <p class="chapter-intro" data-i18n="oeuvresIntro">Découvrez les projets où j'ai infusé ma créativité.</p>
+            
+            <div class="gallery">
+                <a href="funfen.html" class="art-frame">
+                    <div class="frame-content">
+                        <h3>Funفن</h3>
+                        <p class="subtitle" data-i18n="funfenSub">Le réseau de l'Art</p>
+                        <span class="discover-link" data-i18n="explore">Explorer l'œuvre <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="emotions.html" class="art-frame">
+                    <div class="frame-content">
+                        <h3>Emotions</h3>
+                        <p class="subtitle" data-i18n="emotionsSub">La douceur du fait main</p>
+                        <span class="discover-link" data-i18n="explore">Explorer l'œuvre <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Poetry / Substack Section -->
+        <section id="poesie" class="chapter">
+            <h2 class="chapter-title" data-i18n="poesieTitle">Poésie et Mots</h2>
+            <div class="poetry-box">
+                <i class="fa-solid fa-feather-pointed icon-feather"></i>
+                <p class="poem-extract" data-i18n="poem">
+                    "Les mots ont un pouvoir de création infini,<br>
+                    Tout comme les lignes de code qui bâtissent des mondes."
+                </p>
+                <p data-i18n="poesieDesc">J'écris des poèmes en arabe et en anglais, explorant les émotions humaines. La créativité est mon refuge et ma force.</p>
+                
+                <a href="https://substack.com/@yosrzaouga?r=88w36p&utm_medium=ios&utm_source=stories&shareImageVariant=image" target="_blank" class="btn-poetic" data-i18n="btnSubstack">
+                    <i class="fa-solid fa-book-open"></i> Lire mes écrits sur Substack
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills and Education (Essence) Section -->
+        <section id="essence" class="chapter">
+            <h2 class="chapter-title" data-i18n="essenceTitle">Mon Essence</h2>
+            <div class="essence-grid">
+                <div class="essence-card">
+                    <h3 data-i18n="art"><i class="fa-solid fa-wand-magic-sparkles"></i> L'Art</h3>
+                    <p data-i18n="artDesc">Dessin, Création manuelle, Écriture.</p>
+                </div>
+                <a href="certifications.html" class="essence-card clickable-card">
+                    <h3 data-i18n="tech"><i class="fa-solid fa-code"></i> La Technique</h3>
+                    <p>HTML, CSS, JS, PHP, MySQL, Python, C/C++.</p>
+                    <p class="badge">Certificat Cisco en C</p>
+                </a>
+                <div class="essence-card">
+                    <h3 data-i18n="langTitle"><i class="fa-solid fa-language"></i> Les Langues</h3>
+                    <p data-i18n="langDesc">Arabe (Maternelle), Français & Anglais (Courant), Espagnol (Bases).</p>
+                </div>
+                <div class="essence-card">
+                    <h3 data-i18n="path"><i class="fa-solid fa-graduation-cap"></i> Le Chemin</h3>
+                    <p data-i18n="pathDesc">Cycle Ingénieur en Informatique - Univ. Sesame (Dès 2026)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="chapter">
+            <h2 class="chapter-title" data-i18n="contactTitle">Entrons en contact</h2>
+            <p class="chapter-intro" data-i18n="contactIntro">Pour discuter d'un projet, d'une idée, ou d'une passion commune.</p>
+            
+            <div class="contact-grid">
+                <a href="mailto:zaouga.yosr1@gmail.com" class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="tel:+21651198434" class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Téléphone</span>
+                </a>
+                <a href="https://www.linkedin.com/in/yosr-z-2aa70a371?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="[lien-github]" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="poetic-footer">
+        <p data-i18n="footer">Conçu avec tendresse et créativité en 2026.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="i18n.js"></script>
+</body>
+</html>

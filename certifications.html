@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificats & Badges | Portfolio Créatif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .cert-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 10px 30px rgba(155, 114, 170, 0.2);
+        }
+        .cert-icon {
+            font-size: 4rem;
+            color: var(--accent-purple);
+            margin-bottom: 1.5rem;
+        }
+        .cert-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--accent-purple);
+            margin-bottom: 0.5rem;
+        }
+        .cert-card p { color: var(--text-light); font-size: 0.95rem; }
+        .cert-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-purple);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--accent-purple);
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .cert-link:hover { background: var(--accent-purple); color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+
+    <main class="story-container">
+        <a href="index.html#essence" class="back-link" data-i18n="backLink"><i class="fa-solid fa-arrow-left"></i> Retour</a>
+
+        <div class="chapter visible">
+            <header style="text-align: center; margin-bottom: 2rem;">
+                <h1 class="chapter-title" data-i18n="pageTitle">Certificats & Badges</h1>
+                <p class="chapter-intro" data-i18n="pageIntro">La preuve de ma rigueur et de mes compétences techniques.</p>
+            </header>
+
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <i class="fa-solid fa-award cert-icon"></i>
+                    <h3 data-i18n="certName">Certificat Cisco</h3>
+                    <p style="font-weight: 600; color: var(--accent-purple);" data-i18n="certSub">Programmation C</p>
+                    <p style="margin-top: 1rem;" data-i18n="certDesc">Validation des compétences fondamentales en programmation C, structures de données et algorithmique.</p>
+                    <a href="c_certif.pdf" target="_blank" class="cert-link" data-i18n="certBtn">Voir le certificat</a>
+                </div>
+
+                <div class="cert-card" style="opacity: 0.5;">
+                    <i class="fa-solid fa-certificate cert-icon" style="color: var(--text-light);"></i>
+                    <h3 style="color: var(--text-light);" data-i18n="soonTitle">Bientôt...</h3>
+                    <p data-i18n="soonText">D'autres certifications viendront enrichir cette galerie au fil de mon parcours.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="i18n.js"></script>
+</body>
+</html>

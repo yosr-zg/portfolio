@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Emotions | Portfolio Créatif</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .project-header { text-align: center; margin-bottom: 4rem; }
+        .project-demo { background: var(--pastel-pink); padding: 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center; border: 2px dashed var(--accent-purple); }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+
+    <main class="story-container">
+        <a href="index.html" class="back-link" data-i18n="backLink"><i class="fa-solid fa-arrow-left"></i> Retour à mon univers</a>
+
+        <div class="chapter visible">
+            <header class="project-header">
+                <h1 class="chapter-title">Emotions</h1>
+                <p class="small-text" data-i18n="projectDate">Projet personnel</p>
+            </header>
+
+            <div class="verse">
+                <p data-i18n="projectQuote">"La douceur du fait main, transmise à travers une interface délicate et chaleureuse."</p>
+            </div>
+
+            <div class="project-demo">
+                <h2 data-i18n="demoTitle"><i class="fa-solid fa-desktop"></i> Espace Démo</h2>
+                <p data-i18n="demoText">Insérez ici les images de la boutique, ou un prototype interactif de l'interface e-commerce.</p>
+                <div style="height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.5); margin-top: 1rem; border-radius: 10px;">
+                    <i class="fa-regular fa-image fa-3x" style="color: var(--accent-purple); opacity: 0.5;"></i>
+                </div>
+            </div>
+
+            <div class="essence-grid" style="grid-template-columns: 1fr;">
+                <div class="essence-card" style="text-align: left;">
+                    <h3 data-i18n="historyTitle">L'Histoire du Projet</h3>
+                    <p data-i18n="historyText">Emotions est une boutique en ligne dédiée aux vêtements pour bébés créés de manière artisanale et manuelle. J'ai souhaité que l'interface reflète la même tendresse et le même soin que l'on retrouve dans ces créations uniques.</p>
+                    <p data-i18n="historyText2">La conception visuelle tourne autour de l'authenticité et de la douceur pour offrir aux visiteurs une expérience d'achat apaisante.</p>
+                    <br>
+                    <h3 data-i18n="toolsTitle">Les Outils de Création</h3>
+                    <p data-i18n="toolsText">Développé avec amour en utilisant : <strong>HTML, CSS, JavaScript, PHP et MySQL</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="i18n.js"></script>
+</body>
+</html>

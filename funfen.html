@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Funفن | Portfolio Créatif</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .project-header { text-align: center; margin-bottom: 4rem; }
+        .project-demo { background: var(--pastel-purple); padding: 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center; border: 2px dashed var(--accent-purple); }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+
+    <main class="story-container">
+        <a href="index.html" class="back-link" data-i18n="backLink"><i class="fa-solid fa-arrow-left"></i> Retour à mon univers</a>
+
+        <div class="chapter visible">
+            <header class="project-header">
+                <h1 class="chapter-title">Funفن</h1>
+                <p class="small-text" data-i18n="projectDate">Projet de fin d'année (2026)</p>
+            </header>
+
+            <div class="verse">
+                <p data-i18n="projectQuote">"Une plateforme où l'art trouve sa voix, et où chaque artiste peut résonner dans le cœur des autres."</p>
+            </div>
+
+            <div class="project-demo">
+                <video src="video-demo.mp4" controls muted style="width: 100%; border-radius: 10px; border: 1px solid var(--accent-purple);"></video>
+            </div>
+
+            <div class="essence-grid" style="grid-template-columns: 1fr;">
+                <div class="essence-card" style="text-align: left;">
+                    <h3 data-i18n="historyTitle">L'Histoire du Projet</h3>
+                    <p data-i18n="historyText">Funفن est né d'une volonté de lier technologie et émotion. Contrairement aux réseaux sociaux classiques, cette plateforme est dédiée 100% à l'art et aux artistes.</p>
+                    <p data-i18n="historyText2">J'ai pensé l'interface pour qu'elle soit douce, inspirante et qu'elle mette en valeur les œuvres artistiques de manière pure. L'objectif était de donner une âme à ce réseau.</p>
+                    <br>
+                    <h3 data-i18n="toolsTitle">Les Outils de Création</h3>
+                    <p data-i18n="toolsText">Pour construire cette expérience, j'ai utilisé : <strong>HTML, CSS, JavaScript, PHP et MySQL</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="i18n.js"></script>
+</body>
+</html>
